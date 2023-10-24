@@ -31,21 +31,34 @@ function SearchForm({ initialKeyword = '', initialRating = RATINGS[0] }) {
   }
 
   return (
-    <form className='search-form' onSubmit={handleSubmit}>
+    <form
+      className='w-full flex flex-wrap items-center justify-center gap-2'
+      onSubmit={handleSubmit}
+    >
       <input
+        className='px-6 py-1.5 bg-white/10 text-white font-medium text-sm outline-none rounded-full'
         onChange={handleChange}
         type='text'
         value={keyword}
         placeholder='Buscar gifs'
         required
       />
-      <select onChange={handleChangeRating} value={rating}>
+      <select
+        className='px-4 py-1.5 bg-white/10 text-white font-medium text-sm ouline-none rounded-full'
+        onChange={handleChangeRating}
+        value={rating}
+      >
         <option disabled>Rating:</option>
         {RATINGS.map((rating) => (
           <option key={rating}>{rating}</option>
         ))}
       </select>
-      <button>Search</button>
+      <button
+        className='px-6 py-1.5 bg-[#ee4a41] text-white font-medium text-sm rounded-full cursor-pointer'
+        type='submit'
+      >
+        Search
+      </button>
     </form>
   )
 }

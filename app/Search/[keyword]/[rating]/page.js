@@ -33,9 +33,11 @@ export default function Search({ params }) {
       {loading ? (
         <span>loading...</span>
       ) : (
-        <section className='flex flex-col items-center justify-start gap-2'>
+        <section className='flex flex-col items-center justify-start gap-6'>
           <SearchForm initialKeyword={keyword} initialRating={rating} />
-          <h3 className='title-results'>{decodeURI(keyword)}</h3>
+          <h3 className='w-full text-left text-white font-semibold text-2xl'>
+            {decodeURI(keyword)}
+          </h3>
           <ListOfGifs gifs={gifs} />
           <div id='visor' ref={externalRef}></div>
         </section>
