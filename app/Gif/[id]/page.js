@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import useSingleGifs from '@/app/hooks/useSingleGif'
 
 export default function Gif({ params }) {
@@ -20,7 +19,7 @@ export default function Gif({ params }) {
         <span>loading...</span>
       ) : (
         <>
-          <Image
+          <img
             className='rounded-xl'
             width='480'
             height='480'

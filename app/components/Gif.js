@@ -2,7 +2,6 @@
 
 import { memo } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import Heart from './icons/Heart'
 
 function Gif({ title, id, url }) {
@@ -15,7 +14,7 @@ function Gif({ title, id, url }) {
         <span className='p-2 w-full bg-white/5 backdrop-blur-md truncate text-white font-medium text-xs rounded-bl-xl rounded-br-xl absolute bottom-0 left-0'>
           {title}
         </span>
-        <Image
+        <img
           className='w-full rounded-xl'
           width='240'
           height='240'
