@@ -11,7 +11,7 @@ export default function TrendingSearches() {
   const { isNearScreen, fromRef } = useNearScreen({ distance: '200px' })
 
   return (
-    <section className='w-full flex flex-col gap-4' ref={fromRef}>
+    <section className='w-full flex flex-col gap-4 2xl:gap-12' ref={fromRef}>
       <Suspense fallback={<span>loading...</span>}>
         {isNearScreen ? <TrendingSearchesCalls /> : <span>loading...</span>}
       </Suspense>
