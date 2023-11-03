@@ -1,4 +1,4 @@
-export default function Search({ className }) {
+export default function Search({ className = '' }) {
   return (
     <svg
       className={className}

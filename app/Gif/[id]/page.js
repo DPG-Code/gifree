@@ -1,5 +1,6 @@
 'use client'
 
+import Skeleton from '@/app/components/Skeleton'
 import useSingleGifs from '@/app/hooks/useSingleGif'
 
 export default function Gif({ params }) {
@@ -14,9 +15,9 @@ export default function Gif({ params }) {
   }
 
   return (
-    <main className='home-container px-10 py-32 min-h-screen flex flex-col items-center justify-center gap-12 relative lg:flex-row lg:gap-20 2xl:px-20 2xl:py-52 2xl:gap-36'>
+    <main className='home-container w-ful px-10 py-32 min-h-screen flex flex-col items-center justify-center gap-12 relative lg:flex-row lg:gap-20 2xl:px-20 2xl:py-52 2xl:gap-36'>
       {isLoading ? (
-        <span>loading...</span>
+        <Skeleton />
       ) : (
         <>
           <img
@@ -31,7 +32,7 @@ export default function Gif({ params }) {
               {gif?.title}
             </h3>
             <input
-              className='px-6 py-1.5 bg-white/10 text-neutral-300 font-medium text-sm outline-none rounded-full 2xl:px-10 2xl:py-2 2xl:text-xl'
+              className='px-6 py-1.5 border border-neutral-700 bg-primary-black backdrop-blur-md text-primary-white font-normal text-sm outline-none rounded-lg 2xl:px-10 2xl:py-2 2xl:text-xl 2xl:rounded-xl'
               type='text'
               defaultValue={gif?.url}
             />
@@ -39,7 +40,7 @@ export default function Gif({ params }) {
               ID: {gif?.id}
             </p>
             <button
-              className='px-8 py-2 bg-[#ee4a41] shadow-[0px_0px_16px_rgb(238,74,65,0.4)] text-white font-medium text-sm rounded-full cursor-pointer lg:px-12 lg:text-lg 2xl:px-16 2xl:py-4 2xl:text-2xl'
+              className='px-8 py-2 bg-primary-white text-primary-black font-medium text-sm rounded-lg cursor-pointer lg:px-12 lg:text-lg 2xl:px-16 2xl:py-4 2xl:text-2xl 2xl:rounded-xl'
               onClick={copyClipboard}
             >
               Copy URL

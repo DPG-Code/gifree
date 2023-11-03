@@ -13,7 +13,7 @@
   border-radius: 6px;
 }
 
-.home-container::before {
+/* .home-container::before {
   content: '';
   width: 420px;
   height: 420px;
@@ -41,4 +41,4 @@
     height: 1060px;
     top: -560px;
   }
-}
+} */

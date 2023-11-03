@@ -13,7 +13,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <GifsContextProvider>
-      <html className='bg-[#0D0D0D]' lang='en'>
+      <html className='bg-primary-black' lang='en'>
         <body className={inter.className}>
           <Header />
           {children}

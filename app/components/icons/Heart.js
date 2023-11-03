@@ -1,4 +1,4 @@
-export default function Heart({ className }) {
+export default function Heart({ className = '' }) {
   return (
     <svg
       className={className}

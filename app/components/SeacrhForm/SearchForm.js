@@ -38,18 +38,18 @@ function SearchForm({ initialKeyword = '', initialRating = RATINGS[0] }) {
     >
       <div className='w-full flex items-center justify-center relative lg:w-[460px] 2xl:w-[720px]'>
         <input
-          className='px-6 py-1.5 w-full bg-black/50 backdrop-blur-md text-white placeholder:text-neutral-400 font-medium text-sm outline-none rounded-full lg:px-8 lg:py-2 lg:w-[460px] lg:text-lg 2xl:px-12 2xl:py-4 2xl:w-[720px] 2xl:text-2xl'
+          className='px-6 py-2 w-full border border-neutral-700 bg-primary-black backdrop-blur-md text-white placeholder:text-neutral-400 font-medium text-xs outline-none rounded-lg lg:px-8 lg:py-2 lg:w-[460px] lg:text-lg 2xl:px-10 2xl:py-4 2xl:w-[720px] 2xl:text-2xl 2xl:rounded-xl'
           onChange={handleChange}
           type='text'
           value={keyword}
-          placeholder='Películas, series...'
+          placeholder='Buscar...'
           required
         />
         <Search className='w-4 h-4 text-neutral-400 absolute right-6 lg:w-6 lg:h-6 lg:right-8 2xl:right-12' />
       </div>
       <aside className='flex items-center justify-center gap-4 2xl:gap-8'>
         <select
-          className='block w-24 h-8 px-4 bg-white text-[#0d0d0d] placeholder-gray-400 font-medium text-sm rounded-full lg:w-32 lg:h-11 lg:text-lg 2xl:px-6 2xl:w-48 2xl:h-16 2xl:text-2xl'
+          className='block w-24 h-8 px-4 border border-neutral-700 bg-primary-black text-primary-white placeholder-gray-400 font-medium text-sm rounded-lg lg:w-32 lg:h-11 lg:text-lg 2xl:px-6 2xl:w-48 2xl:h-16 2xl:text-2xl 2xl:rounded-xl'
           onChange={handleChangeRating}
           value={rating}
         >
@@ -69,7 +69,7 @@ function SearchForm({ initialKeyword = '', initialRating = RATINGS[0] }) {
           ))}
         </select>
         <button
-          className='px-8 py-1.5 bg-[#ee4a41] shadow-[0px_0px_16px_rgb(238,74,65,0.4)] text-white font-medium text-sm rounded-full cursor-pointer lg:px-12 lg:py-2 lg:text-lg 2xl:px-16 2xl:py-4 2xl:text-2xl'
+          className='px-8 py-1.5 bg-primary-white text-primary-black font-semibold text-sm rounded-lg cursor-pointer transition lg:px-12 lg:py-2 lg:text-lg 2xl:px-16 2xl:py-4 2xl:text-2xl 2xl:rounded-xl'
           type='submit'
         >
           Buscar
