@@ -12,9 +12,11 @@ export default function Home() {
   return (
     <main className='home-container w-full px-10 py-32 min-h-screen flex flex-col items-center justify-start gap-12 relative overflow-hidden 2xl:px-20 2xl:py-52 2xl:gap-20'>
       <header className='flex flex-col items-center justify-center gap-2'>
-        <h1 className='text-white font-bold text-6xl lg:text-8xl 2xl:text-[172px]'>
-          Gifree
-        </h1>
+        <img
+          className='w-56 invert xl:w-96 xl:mb-2 2xl:w-[480px] 2xl:mb-3'
+          src='/gifree.png'
+          alt='header logo'
+        />
         <p className='mb-8 text-center text-neutral-300 font-medium text-base lg:text-2xl 2xl:mb-12 2xl:text-4xl'>
           ¡Encontraras gifs de lo que imagines!
         </p>

@@ -8,19 +8,23 @@ export default function Header() {
           className='mr-auto text-white font-bold xl:text-2xl 2xl:text-4xl'
           href='/'
         >
-          Gifree
-        </Link>
-        <Link
-          className='text-neutral-400 font-bold text-xs xl:text-xl 2xl:text-3xl'
-          href='/'
-        >
-          Registrarse
+          <img
+            className='w-12 invert xl:w-20 2xl:w-32'
+            src='/gifree.png'
+            alt='header logo'
+          />
         </Link>
         <Link
           className='text-neutral-400 font-bold text-xs xl:text-xl 2xl:text-3xl'
           href='/'
         >
           Favoritos
+        </Link>
+        <Link
+          className='text-neutral-400 font-bold text-xs xl:text-xl 2xl:text-3xl'
+          href='/'
+        >
+          Registrarse
         </Link>
       </nav>
     </header>
