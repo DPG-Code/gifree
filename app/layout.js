@@ -14,6 +14,7 @@ export default function RootLayout({ children }) {
   return (
     <GifsContextProvider>
       <html className='bg-primary-black' lang='en'>
+        <link rel='icon' href='/favicon.png' sizes='any' />
         <body className={inter.className}>
           <Header />
           {children}
