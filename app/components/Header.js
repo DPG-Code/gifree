@@ -16,7 +16,7 @@ export default function Header() {
         </Link>
         <Link
           className='text-neutral-400 font-bold text-xs xl:text-xl 2xl:text-3xl'
-          href='/'
+          href='/favorites'
         >
           Favoritos
         </Link>
