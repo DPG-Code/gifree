@@ -1,6 +1,11 @@
+'use client'
+
 import Link from 'next/link'
+import useAuth from '../hooks/useAuth'
 
 export default function Header() {
+  const { user, logout } = useAuth()
+
   return (
     <header className='w-full flex items-center justify-center fixed z-50'>
       <nav className='px-8 py-4 w-full border-b border-neutral-800 bg-primary-black/75 backdrop-blur-md flex items-center gap-6 xl:px-16 xl:py-6 xl:gap-10 2xl:px-24 2xl:py-10 2xl:gap-12'>
@@ -20,12 +25,26 @@ export default function Header() {
         >
           Favoritos
         </Link>
-        <Link
-          className='text-neutral-400 font-bold text-xs xl:text-xl 2xl:text-3xl'
-          href='/login'
-        >
-          Registrarse
-        </Link>
+        {user?.user ? (
+          user.user.email
+        ) : (
+          <Link
+            className='text-neutral-400 font-bold text-xs xl:text-xl 2xl:text-3xl'
+            href='/login'
+          >
+            Accede
+          </Link>
+        )}
+        {user?.user ? (
+          <button
+            onClick={logout}
+            className='text-neutral-400 font-bold text-xs xl:text-xl 2xl:text-3xl'
+          >
+            Cerrar sesion
+          </button>
+        ) : (
+          'no logueado'
+        )}
       </nav>
     </header>
   )

@@ -1,22 +1,15 @@
 'use client'
 
 import { useState } from 'react'
-import { createClient } from '../utils/supabase/client'
+import useAuth from '../hooks/useAuth'
 
 export default function Login() {
   const [email, setEmail] = useState()
-  const supabase = createClient()
+  const { login } = useAuth()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    try {
-      const { error } = await supabase.auth.signInWithOtp({
-        email
-      })
-      if (error) throw error
-    } catch (error) {
-      console.log(error)
-    }
+    login(email)
   }
 
   return (

@@ -5,13 +5,9 @@ import SearchForm from './components/SeacrhForm/SearchForm'
 import ListOfGifs from './components/ListOfGifs'
 import TrendingSearches from './components/TrendingSearch/TrendingSearches'
 import Loader from './components/Loader'
-import { createClient } from './utils/supabase/client'
 
 export default function Home() {
   const { loading, gifs } = useGifs()
-
-  const supabase = createClient()
-  supabase.auth.getUser().then((data) => console.log(data))
 
   return (
     <main className='home-container w-full px-10 py-32 min-h-screen flex flex-col items-center justify-start gap-12 relative overflow-hidden 2xl:px-20 2xl:py-52 2xl:gap-20'>
