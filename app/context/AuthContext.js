@@ -48,10 +48,6 @@ export function AuthContextProvider({ children }) {
         email,
         password
       })
-      await supabase
-        .from('users')
-        .insert([{ user: email, favorites: '[]' }])
-        .select()
       if (error) throw error
     } catch (error) {
       console.log(error)
@@ -67,9 +63,50 @@ export function AuthContextProvider({ children }) {
     }
   }
 
+  // Adding User(favorites) table
+  const checkIfFavoriteRowExists = async () => {
+    try {
+      if (!currentUser) return false
+
+      const { data: user, error } = await supabase
+        .from('users')
+        .select('favorites')
+        .eq('user', currentUser.user.email)
+
+      if (error) throw error
+      return user[0]?.favorites ? true : false
+    } catch (error) {
+      console.log(error)
+      return false
+    }
+  }
+
+  const addUserRowIfNeeded = async (email) => {
+    try {
+      const isRowCreated = await checkIfFavoriteRowExists()
+      if (isRowCreated) return
+
+      const { data, error } = await supabase
+        .from('users')
+        .insert([{ user: email, favorites: '[]' }])
+        .select()
+
+      if (error) throw error
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <AuthContext.Provider
-      value={{ user: currentUser, login, signUp, loginWithMagic, logout }}
+      value={{
+        user: currentUser,
+        login,
+        signUp,
+        loginWithMagic,
+        logout,
+        addUserRowIfNeeded
+      }}
     >
       {children}
     </AuthContext.Provider>

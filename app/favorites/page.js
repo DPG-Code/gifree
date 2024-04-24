@@ -25,7 +25,7 @@ export default function Favorites() {
           let { data: user, error } = await supabase
             .from('users')
             .select('*')
-            .eq('user', currentUser.user.id)
+            .eq('user', currentUser.user.email)
           setFavorites(JSON.parse(user[0].favorites))
         } catch (error) {
           console.log(error)
@@ -40,7 +40,7 @@ export default function Favorites() {
       <h2 className=''>Favorites</h2>
       {favorites.length > 0
         ? favorites.map((gif, i) => <p key={i}>{gif}</p>)
-        : 'Loading...'}
+        : 'Añade un Gif y se mostrará aquí'}
     </main>
   )
 }
