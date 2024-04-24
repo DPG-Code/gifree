@@ -19,11 +19,39 @@ export function AuthContextProvider({ children }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const login = async (email) => {
+  const loginWithMagic = async (email) => {
     try {
       const { error } = await supabase.auth.signInWithOtp({
         email
       })
+      if (error) throw error
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const login = async (email, password) => {
+    try {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password
+      })
+      if (error) throw error
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const signUp = async (email, password) => {
+    try {
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password
+      })
+      await supabase
+        .from('users')
+        .insert([{ user: email, favorites: '[]' }])
+        .select()
       if (error) throw error
     } catch (error) {
       console.log(error)
@@ -40,7 +68,9 @@ export function AuthContextProvider({ children }) {
   }
 
   return (
-    <AuthContext.Provider value={{ user: currentUser, login, logout }}>
+    <AuthContext.Provider
+      value={{ user: currentUser, login, signUp, loginWithMagic, logout }}
+    >
       {children}
     </AuthContext.Provider>
   )
