@@ -1,45 +1,24 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { createClient } from '../utils/supabase/client'
+import { useFavorites } from '../hooks/useFavorites'
 
 export default function Favorites() {
-  const [currentUser, setCurrentUser] = useState(null)
-  const [favorites, setFavorites] = useState([])
-
-  const supabase = createClient()
-
-  useEffect(() => {
-    const fetchUser = async () => {
-      const { data: user } = await supabase.auth.getUser()
-      setCurrentUser(user)
-    }
-    fetchUser()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
-  useEffect(() => {
-    const getFavorites = async () => {
-      if (currentUser) {
-        try {
-          let { data: user, error } = await supabase
-            .from('users')
-            .select('*')
-            .eq('user', currentUser.user.email)
-          setFavorites(JSON.parse(user[0].favorites))
-        } catch (error) {
-          console.log(error)
-        }
-      }
-    }
-    getFavorites()
-  }, [currentUser, supabase])
+  const { favorites } = useFavorites()
 
   return (
     <main className='min-h-screen flex flex-col items-center justify-start p-24'>
       <h2 className=''>Favorites</h2>
       {favorites.length > 0
-        ? favorites.map((gif, i) => <p key={i}>{gif}</p>)
+        ? favorites.map((url, i) => (
+            <img
+              className='w-72 rounded-lg 2xl:rounded-xl'
+              key={i}
+              width='240'
+              height='240'
+              src={url}
+              alt={url}
+            />
+          ))
         : 'Añade un Gif y se mostrará aquí'}
     </main>
   )

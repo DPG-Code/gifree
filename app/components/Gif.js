@@ -3,20 +3,15 @@
 import { memo } from 'react'
 import Link from 'next/link'
 import Heart from './icons/Heart'
-import useAuth from '../hooks/useAuth'
+import { useFavorites } from '../hooks/useFavorites'
 
 function Gif({ title, id, url }) {
-  const { addUserRowIfNeeded, user } = useAuth()
-
-  const addFavorite = async () => {
-    await addUserRowIfNeeded(user.user.email)
-    // add favorite ->
-  }
+  const { addFavorite } = useFavorites()
 
   return (
     <div className='mb-4 relative 2xl:mb-6'>
       <button
-        onClick={addFavorite}
+        onClick={() => addFavorite(url)}
         className='p-2 bg-primary-black/30 backdrop-blur-md text-white rounded-full absolute top-2 right-2 z-10 2xl:p-4 2xl:top-4 2xl:right-4'
       >
         <Heart className='w-4 h-4 sm:w-6 sm:h-6 2xl:w-8 2xl:h-8' />
