@@ -3,7 +3,7 @@ import useAuth from './useAuth'
 import { createClient } from '../utils/supabase/client'
 
 export function useFavorites() {
-  const { addUserRowIfNeeded, user } = useAuth()
+  const { user, addUserRowIfNeeded } = useAuth()
   const [favorites, setFavorites] = useState([])
 
   const supabase = createClient()
@@ -31,10 +31,10 @@ export function useFavorites() {
     const isFavorite = favorites.includes(url)
 
     const updatedFavorites = isFavorite
-      ? setFavorites((prevFavorites) =>
-          prevFavorites.filter((item) => item !== url)
-        )
-      : setFavorites((prevFavorites) => [...prevFavorites, url])
+      ? favorites.filter((item) => item !== url)
+      : [...favorites, url]
+
+    setFavorites(updatedFavorites)
 
     try {
       const { data, error } = await supabase

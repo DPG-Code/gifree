@@ -1,13 +1,11 @@
 'use client'
 
-import { memo } from 'react'
+import { memo, useEffect } from 'react'
 import Link from 'next/link'
 import Heart from './icons/Heart'
 import { useFavorites } from '../hooks/useFavorites'
 
-function Gif({ title, id, url }) {
-  const { addFavorite } = useFavorites()
-
+function Gif({ title, id, url, addFavorite }) {
   return (
     <div className='mb-4 relative 2xl:mb-6'>
       <button
