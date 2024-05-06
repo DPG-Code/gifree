@@ -4,12 +4,20 @@ import { memo, useEffect } from 'react'
 import Link from 'next/link'
 import Heart from './icons/Heart'
 import { useFavorites } from '../hooks/useFavorites'
+import { useRouter } from 'next/navigation'
 
-function Gif({ title, id, url, addFavorite }) {
+function Gif({ title, id, url, addFavorite, user }) {
+  const router = useRouter()
+
+  const handleAddFavorite = () => {
+    if (user?.user) addFavorite(url)
+    else router.push('/login')
+  }
+
   return (
     <div className='mb-4 relative 2xl:mb-6'>
       <button
-        onClick={() => addFavorite(url)}
+        onClick={handleAddFavorite}
         className='p-2 bg-primary-black/30 backdrop-blur-md text-white rounded-full absolute top-2 right-2 z-10 2xl:p-4 2xl:top-4 2xl:right-4'
       >
         <Heart className='w-4 h-4 sm:w-6 sm:h-6 2xl:w-8 2xl:h-8' />

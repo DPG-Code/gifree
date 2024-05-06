@@ -2,9 +2,16 @@
 
 import Link from 'next/link'
 import useAuth from '../hooks/useAuth'
+import { useRouter } from 'next/navigation'
 
 export default function Header() {
   const { user, logout } = useAuth()
+  const router = useRouter()
+
+  const handleLogout = async () => {
+    await logout()
+    router.refresh()
+  }
 
   return (
     <header className='w-full flex items-center justify-center fixed z-50'>
@@ -37,13 +44,13 @@ export default function Header() {
         )}
         {user?.user ? (
           <button
-            onClick={logout}
+            onClick={handleLogout}
             className='text-neutral-400 font-bold text-xs xl:text-xl 2xl:text-3xl'
           >
             Cerrar sesion
           </button>
         ) : (
-          'no logueado'
+          ''
         )}
       </nav>
     </header>

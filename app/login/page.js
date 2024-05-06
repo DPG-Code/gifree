@@ -1,19 +1,27 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import useAuth from '../hooks/useAuth'
+import { useRouter } from 'next/navigation'
 
 export default function Login() {
+  const router = useRouter()
   const [isLoginPage, setIsLoginPage] = useState(true)
-  const { login, signUp } = useAuth()
+  const { user, login, signUp } = useAuth()
+
+  useEffect(() => {
+    if (user?.user) router.push('/')
+  }, [router, user])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     const { email, password } = Object.fromEntries(new FormData(e.target))
     // organizar
     try {
-      if (isLoginPage) login(email, password)
-      else {
+      if (isLoginPage) {
+        await login(email, password)
+        router.push('/')
+      } else {
         signUp(email, password)
         // mostrar mensaje de verificar email
       }
