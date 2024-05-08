@@ -4,6 +4,7 @@ import { memo, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import useForm from './useForm'
 import Search from '../icons/Search'
+import { Button } from '@/components/ui/button'
 
 const RATINGS = ['g', 'pg', 'pg-13', 'r']
 
@@ -68,12 +69,7 @@ function SearchForm({ initialKeyword = '', initialRating = RATINGS[0] }) {
             </option>
           ))}
         </select>
-        <button
-          className='px-8 py-1.5 bg-primary-white text-primary-black font-semibold text-sm rounded-lg cursor-pointer transition lg:px-12 lg:py-2 lg:text-lg 2xl:px-16 2xl:py-4 2xl:text-2xl 2xl:rounded-xl'
-          type='submit'
-        >
-          Buscar
-        </button>
+        <Button type='submit'>Buscar</Button>
       </aside>
     </form>
   )
