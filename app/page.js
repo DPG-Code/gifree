@@ -10,7 +10,7 @@ export default function Home() {
   const { loading, gifs } = useGifs()
 
   return (
-    <main className='home-container w-full px-10 py-32 min-h-screen flex flex-col items-center justify-start gap-12 relative overflow-hidden 2xl:px-20 2xl:py-52 2xl:gap-20'>
+    <main className='w-full px-10 py-32 min-h-screen flex flex-col items-center justify-start gap-12 relative overflow-hidden 2xl:px-20 2xl:py-52 2xl:gap-20'>
       <header className='flex flex-col items-center justify-center gap-2'>
         <img
           className='w-56 invert xl:w-96 xl:mb-2 2xl:w-[480px] 2xl:mb-3'
