@@ -4,7 +4,6 @@ import { memo, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import useForm from './useForm'
 import Search from '../icons/Search'
-<<<<<<< HEAD
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import {
@@ -14,9 +13,6 @@ import {
   SelectTrigger,
   SelectValue
 } from '@/components/ui/select'
-=======
-import { Button } from '@/components/ui/button'
->>>>>>> f228f6fbe39976bd57dd632f96fc73f077706c18
 
 const RATINGS = ['g', 'pg', 'pg-13', 'r']
 
@@ -65,7 +61,6 @@ function SearchForm({ initialKeyword = '', initialRating = RATINGS[0] }) {
           onChange={handleChangeRating}
           value={rating}
         >
-<<<<<<< HEAD
           <SelectTrigger className='w-[86px] lg:w-[102px] 2xl:w-[112px]'>
             <SelectValue placeholder='Rating' />
           </SelectTrigger>
@@ -77,23 +72,6 @@ function SearchForm({ initialKeyword = '', initialRating = RATINGS[0] }) {
             ))}
           </SelectContent>
         </Select>
-=======
-          <option
-            className='p-1 text-xs font-medium lg:p-2 lg:text-sm'
-            disabled
-          >
-            Rating
-          </option>
-          {RATINGS.map((rating) => (
-            <option
-              className='p-1 text-xs font-medium lg:p-2 lg:text-sm'
-              key={rating}
-            >
-              {rating}
-            </option>
-          ))}
-        </select>
->>>>>>> f228f6fbe39976bd57dd632f96fc73f077706c18
         <Button type='submit'>Buscar</Button>
       </aside>
     </form>
