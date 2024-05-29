@@ -1,6 +1,5 @@
 'use client'
 
-import { useEffect } from 'react'
 import { useFavorites } from '../hooks/useFavorites'
 import Gif from './Gif'
 import useAuth from '../hooks/useAuth'

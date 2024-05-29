@@ -23,9 +23,13 @@ function Gif({ title, id, url, addFavorite, user }) {
         <Heart className='w-4 h-4 sm:w-6 sm:h-6 2xl:w-8 2xl:h-8' />
       </button>
       <Link className='relative' href={`/Gif/${id}`}>
-        <span className='p-2 w-full bg-primary-black/40 backdrop-blur-md truncate text-white font-semibold text-[10px] rounded-bl-lg rounded-br-lg absolute bottom-0 left-0 lg:px-3 lg:text-xs 2xl:px-6 2xl:py-3 2xl:text-lg 2xl:rounded-bl-xl 2xl:rounded-br-xl'>
-          {title}
-        </span>
+        {title ? (
+          <span className='p-2 w-full bg-primary-black/40 backdrop-blur-md truncate text-white font-semibold text-[10px] rounded-bl-lg rounded-br-lg absolute bottom-0 left-0 lg:px-3 lg:text-xs 2xl:px-6 2xl:py-3 2xl:text-lg 2xl:rounded-bl-xl 2xl:rounded-br-xl'>
+            {title}
+          </span>
+        ) : (
+          ''
+        )}
         <img
           className='w-full rounded-lg 2xl:rounded-xl'
           width='240'

@@ -19,6 +19,11 @@ module.exports = {
       }
     },
     extend: {
+      colors: {
+        'primary-black': '#09090b',
+        'primary-white': '#fafafa',
+        'primary-color': '#ee4a41'
+      },
       fontFamily: {
         sans: ['var(--font-sans)', ...fontFamily.sans]
       },

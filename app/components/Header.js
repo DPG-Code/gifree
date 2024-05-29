@@ -33,7 +33,7 @@ export default function Header() {
           Favoritos
         </Link>
         {user?.user ? (
-          user.user.email
+          ''
         ) : (
           <Link
             className='text-neutral-400 font-bold text-xs xl:text-xl 2xl:text-3xl'
