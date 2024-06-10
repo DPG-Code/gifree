@@ -32,6 +32,7 @@ export default function Login() {
       if (isLoginPage) {
         await login(email, password)
         router.push('/')
+        router.refresh()
       } else {
         signUp(email, password)
         // mostrar mensaje de verificar email
@@ -42,8 +43,7 @@ export default function Login() {
   }
 
   return (
-    <main className='p-24 min-h-screen flex flex-col items-center justify-start gap-4 2xl:py-36'>
-      <h2 className='text-white'>Accede</h2>
+    <main className='px-10 py-24 min-h-screen flex flex-col items-center justify-start gap-4 lg:px-12 lg:py-32 2xl:px-24 2xl:py-52'>
       <Form {...form}>
         <form
           className='w-full flex flex-col items-center justify-center gap-4 2xl:gap-6'
@@ -77,7 +77,10 @@ export default function Login() {
             {isLoginPage ? 'Entrar' : 'Crear cuenta'}
           </Button>
         </form>
-        <button onClick={() => setIsLoginPage(!isLoginPage)}>
+        <button
+          className='text-neutral-300'
+          onClick={() => setIsLoginPage(!isLoginPage)}
+        >
           {isLoginPage ? '¿No tienes una cuenta?' : '¿Tienes una cuenta?'}
         </button>
       </Form>

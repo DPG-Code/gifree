@@ -4,7 +4,7 @@ import { memo, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import useForm from './useForm'
 import { useForm as useFormReact } from 'react-hook-form'
-import Search from '../icons/Search'
+import { Search } from '../icons/Icons'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import {
