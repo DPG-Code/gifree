@@ -31,7 +31,7 @@ export default function Login() {
     try {
       if (isLoginPage) {
         await login(email, password)
-        router.push('/')
+        // router.push('/')
         router.refresh()
       } else {
         signUp(email, password)
