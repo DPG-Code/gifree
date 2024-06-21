@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import useAuth from '../hooks/useAuth'
 import { useRouter } from 'next/navigation'
+import { Button } from '@/components/ui/button'
 
 export default function Header() {
   const { user, logout } = useAuth()
@@ -15,7 +16,7 @@ export default function Header() {
 
   return (
     <header className='w-full flex items-center justify-center fixed z-50'>
-      <nav className='px-8 py-4 w-full border-b border-neutral-800 bg-primary-black/75 backdrop-blur-md flex items-center gap-6 xl:px-16 xl:py-6 xl:gap-10 2xl:px-24 2xl:py-10 2xl:gap-12'>
+      <nav className='px-8 py-4 w-full border-b border-neutral-800 bg-primary-black/75 backdrop-blur-md flex items-center gap-2 xl:px-16 xl:py-6 xl:gap-6 2xl:px-24 2xl:py-10 2xl:gap-12'>
         <Link
           className='mr-auto text-white font-bold xl:text-2xl 2xl:text-4xl'
           href='/'
@@ -26,29 +27,20 @@ export default function Header() {
             alt='header logo'
           />
         </Link>
-        <Link
-          className='text-neutral-400 font-bold text-xs xl:text-xl 2xl:text-3xl'
-          href='/favorites'
-        >
-          Favoritos
+        <Link href='/favorites'>
+          <Button variant='link'>Favoritos</Button>
         </Link>
         {user?.user ? (
           ''
         ) : (
-          <Link
-            className='text-neutral-400 font-bold text-xs xl:text-xl 2xl:text-3xl'
-            href='/login'
-          >
-            Accede
+          <Link href='/login'>
+            <Button variant='secondary'>Accede</Button>
           </Link>
         )}
         {user?.user ? (
-          <button
-            onClick={handleLogout}
-            className='text-neutral-400 font-bold text-xs xl:text-xl 2xl:text-3xl'
-          >
+          <Button onClick={handleLogout} variant='secondary'>
             Cerrar sesion
-          </button>
+          </Button>
         ) : (
           ''
         )}

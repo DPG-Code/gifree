@@ -10,14 +10,14 @@ export function useFavorites() {
 
   useEffect(() => {
     const getFavorites = async () => {
-      if (user) {
+      if (user && user.user) {
         try {
           let { data: userData, error } = await supabase
             .from('users')
             .select('favorites')
-            .eq('user', user.user.email)
+            .eq('user', user?.user?.email)
           if (error) throw error
-          setFavorites(JSON.parse(userData[0].favorites))
+          setFavorites(JSON.parse(userData[0]?.favorites))
         } catch (error) {
           console.log(error)
         }
@@ -27,7 +27,7 @@ export function useFavorites() {
   }, [user, supabase])
 
   const addFavorite = async (url) => {
-    await addUserRowIfNeeded(user.user.email)
+    await addUserRowIfNeeded(user?.user?.email)
     const isFavorite = favorites.includes(url)
 
     const updatedFavorites = isFavorite
@@ -40,7 +40,7 @@ export function useFavorites() {
       const { data, error } = await supabase
         .from('users')
         .update({ favorites: JSON.stringify(updatedFavorites) })
-        .eq('user', user.user.email)
+        .eq('user', user?.user?.email)
         .select()
       if (error) throw error
       setFavorites(updatedFavorites)

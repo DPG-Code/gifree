@@ -2,6 +2,8 @@
 
 import Skeleton from '@/app/components/Skeleton'
 import useSingleGifs from '@/app/hooks/useSingleGif'
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
 
 export default function Gif({ params }) {
   const { gif, isLoading } = useSingleGifs({ id: params.id })
@@ -39,12 +41,12 @@ export default function Gif({ params }) {
             <p className='text-center text-neutral-300 font-medium text-base 2xl:text-xl'>
               ID: {gif?.id}
             </p>
-            <button
-              className='px-8 py-2 bg-primary-white text-primary-black font-medium text-sm rounded-lg cursor-pointer lg:px-12 lg:text-lg 2xl:px-16 2xl:py-4 2xl:text-2xl 2xl:rounded-xl'
-              onClick={copyClipboard}
-            >
-              Copy URL
-            </button>
+            <div className='flex gap-2 xl:gap-4'>
+              <Button onClick={copyClipboard}>Copy URL</Button>
+              <Link href={gif?.url} target='_blank'>
+                <Button variant='secondary'>Original Gif</Button>
+              </Link>
+            </div>
           </aside>
         </>
       )}

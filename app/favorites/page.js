@@ -9,7 +9,7 @@ export default function Favorites() {
   const { user } = useAuth()
 
   return (
-    <main className='px-10 py-24 min-h-screen flex flex-col items-center justify-start lg:px-12 lg:py-32 2xl:px-24 2xl:py-52'>
+    <main className='px-10 py-28 min-h-screen flex flex-col items-center justify-start lg:px-12 lg:py-36 2xl:px-24 2xl:py-52'>
       <h2 className='mb-4 w-full text-left text-white font-semibold text-2xl lg:mb-8 lg:text-3xl 2xl:mb-12 2xl:text-5xl'>
         Favorites
       </h2>

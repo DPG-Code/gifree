@@ -43,7 +43,10 @@ export default function Login() {
   }
 
   return (
-    <main className='px-10 py-24 min-h-screen flex flex-col items-center justify-start gap-4 lg:px-12 lg:py-32 2xl:px-24 2xl:py-52'>
+    <main className='px-10 py-28 min-h-screen flex flex-col items-center justify-start gap-4 lg:px-12 lg:py-36 2xl:px-24 2xl:py-52 2xl:gap-6'>
+      <h2 className='mb-4 text-center text-white font-semibold text-xl lg:mb-8 lg:text-2xl 2xl:mb-12 2xl:text-4xl'>
+        Accede y disfruta de infinidad de gifs
+      </h2>
       <Form {...form}>
         <form
           className='w-full flex flex-col items-center justify-center gap-4 2xl:gap-6'
@@ -78,7 +81,7 @@ export default function Login() {
           </Button>
         </form>
         <button
-          className='text-neutral-300'
+          className='font-medium text-neutral-400 2xl:text-lg'
           onClick={() => setIsLoginPage(!isLoginPage)}
         >
           {isLoginPage ? '¿No tienes una cuenta?' : '¿Tienes una cuenta?'}

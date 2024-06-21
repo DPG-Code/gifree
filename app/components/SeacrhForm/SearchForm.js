@@ -54,7 +54,7 @@ function SearchForm({ initialKeyword = '', initialRating = 'g' }) {
                     required
                     {...field}
                   />
-                  <Search className='w-4 h-4 text-neutral-400 absolute right-4 lg:w-5 lg:h-5 lg:right-6 2xl:right-8' />
+                  <Search className='w-4 h-4 text-neutral-400 absolute right-3 lg:w-5 lg:h-5 lg:right-4 2xl:right-8 2xl:w-6 2xl:h-6' />
                 </div>
               </FormControl>
             </FormItem>
@@ -88,7 +88,9 @@ function SearchForm({ initialKeyword = '', initialRating = 'g' }) {
               </FormItem>
             )}
           />
-          <Button type='submit'>Submit</Button>
+          <Button size='md' type='submit'>
+            Submit
+          </Button>
         </div>
       </form>
     </Form>
