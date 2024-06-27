@@ -21,6 +21,7 @@ export default function Favorites() {
                 key={url}
                 id={url}
                 url={url}
+                favorites={favorites}
                 addFavorite={addFavorite}
                 user={user}
               />

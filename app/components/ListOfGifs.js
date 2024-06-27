@@ -5,7 +5,7 @@ import Gif from './Gif'
 import useAuth from '../hooks/useAuth'
 
 export default function ListOfGifs({ gifs }) {
-  const { addFavorite } = useFavorites()
+  const { favorites, addFavorite } = useFavorites()
   const { user } = useAuth()
 
   return (
@@ -16,6 +16,7 @@ export default function ListOfGifs({ gifs }) {
           id={id}
           title={title}
           url={url}
+          favorites={favorites}
           addFavorite={addFavorite}
           user={user}
         />
