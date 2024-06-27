@@ -1,18 +1,26 @@
 'use client'
 
-import Skeleton from '@/app/components/Skeleton'
-import useSingleGifs from '@/app/hooks/useSingleGif'
 import Link from 'next/link'
+import useSingleGifs from '@/app/hooks/useSingleGif'
+import Skeleton from '@/app/components/Skeleton'
 import { Button } from '@/components/ui/button'
+import { useToast } from '@/components/ui/use-toast'
 
 export default function Gif({ params }) {
   const { gif, isLoading } = useSingleGifs({ id: params.id })
+  const { toast } = useToast()
 
   async function copyClipboard() {
     try {
       await navigator.clipboard.writeText(window.location.href)
+      toast({
+        description: '¡Url copiada!'
+      })
     } catch (err) {
       console.error(err)
+      toast({
+        description: 'Error al copiar la url.'
+      })
     }
   }
 

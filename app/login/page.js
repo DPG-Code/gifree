@@ -41,7 +41,7 @@ export default function Login() {
     } catch (error) {
       toast({
         variant: 'destructive',
-        title: 'Oh no! Algo salió mal.',
+        title: '¡Oh no! Algo salió mal.',
         description: 'Hay un problema con tu usuario o contraseña.'
       })
     }
