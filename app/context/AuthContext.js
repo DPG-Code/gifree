@@ -26,7 +26,8 @@ export function AuthContextProvider({ children }) {
       })
       if (error) throw error
     } catch (error) {
-      console.log(error)
+      // console.log(error)
+      throw error
     }
   }
 
@@ -38,7 +39,8 @@ export function AuthContextProvider({ children }) {
       })
       if (error) throw error
     } catch (error) {
-      console.log(error)
+      // console.log(error)
+      throw error
     }
   }
 
@@ -50,7 +52,8 @@ export function AuthContextProvider({ children }) {
       })
       if (error) throw error
     } catch (error) {
-      console.log(error)
+      // console.log(error)
+      throw error
     }
   }
 
@@ -59,7 +62,8 @@ export function AuthContextProvider({ children }) {
       const { error } = await supabase.auth.signOut()
       if (error) throw error
     } catch (error) {
-      console.log(error)
+      // console.log(error)
+      throw error
     }
   }
 

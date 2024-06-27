@@ -13,6 +13,7 @@ import {
 import { useForm } from 'react-hook-form'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { useToast } from '@/components/ui/use-toast'
 
 export default function Login() {
   const router = useRouter()
@@ -20,6 +21,7 @@ export default function Login() {
   const { user, login, signUp } = useAuth()
 
   const form = useForm()
+  const { toast } = useToast()
 
   useEffect(() => {
     if (user?.user) router.push('/')
@@ -27,18 +29,21 @@ export default function Login() {
 
   const onSubmit = async (values) => {
     const { email, password } = values
-    // organizar
     try {
       if (isLoginPage) {
         await login(email, password)
-        // router.push('/')
-        router.refresh()
       } else {
-        signUp(email, password)
-        // mostrar mensaje de verificar email
+        await signUp(email, password)
+        toast({
+          description: 'Dirígete a tu email y verifica tu cuenta.'
+        })
       }
     } catch (error) {
-      console.log(error)
+      toast({
+        variant: 'destructive',
+        title: 'Oh no! Algo salió mal.',
+        description: 'Hay un problema con tu usuario o contraseña.'
+      })
     }
   }
 
@@ -59,7 +64,7 @@ export default function Login() {
               <FormItem>
                 <FormLabel>Email</FormLabel>
                 <FormControl>
-                  <Input placeholder='example@gmail.com' {...field} />
+                  <Input placeholder='example@gmail.com' required {...field} />
                 </FormControl>
               </FormItem>
             )}
@@ -71,7 +76,12 @@ export default function Login() {
               <FormItem>
                 <FormLabel>Password</FormLabel>
                 <FormControl>
-                  <Input type='password' placeholder='******' {...field} />
+                  <Input
+                    type='password'
+                    placeholder='******'
+                    required
+                    {...field}
+                  />
                 </FormControl>
               </FormItem>
             )}
