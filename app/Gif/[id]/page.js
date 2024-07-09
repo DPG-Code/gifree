@@ -14,12 +14,14 @@ export default function Gif({ params }) {
     try {
       await navigator.clipboard.writeText(window.location.href)
       toast({
-        description: '¡Url copiada!'
+        description: 'Url copiada al portapapeles.'
       })
     } catch (err) {
       console.error(err)
       toast({
-        description: 'Error al copiar la url.'
+        variant: 'destructive',
+        title: '¡Oh no! Algo salió mal.',
+        description: 'Hay un problema al copiar la url.'
       })
     }
   }
