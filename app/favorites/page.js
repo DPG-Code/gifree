@@ -16,11 +16,11 @@ export default function Favorites() {
       {user?.user ? (
         favorites.length > 0 ? (
           <section className='w-full columns-2 gap-4 sm:columns-3 xl:columns-4 2xl:gap-6'>
-            {favorites.map((url) => (
+            {favorites.map((gif) => (
               <Gif
-                key={url}
-                id={url}
-                url={url}
+                key={gif.id}
+                id={gif.id}
+                url={gif.url}
                 favorites={favorites}
                 addFavorite={addFavorite}
                 user={user}

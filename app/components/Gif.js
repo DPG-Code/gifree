@@ -9,12 +9,12 @@ function Gif({ title, id, url, addFavorite, favorites, user }) {
   const router = useRouter()
 
   const handleAddFavorite = () => {
-    if (user?.user) addFavorite(url)
+    if (user?.user) addFavorite(url, id)
     else router.push('/login')
   }
 
   const ifFavorite = favorites
-    ? favorites.includes(url)
+    ? favorites.some((gif) => gif.url === url)
       ? 'bg-red-700/75 hover:bg-primary-black/30'
       : 'bg-primary-black/30 hover:bg-red-700/75'
     : 'bg-primary-black/30 hover:bg-red-700/75'

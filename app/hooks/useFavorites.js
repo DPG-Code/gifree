@@ -26,13 +26,14 @@ export function useFavorites() {
     getFavorites()
   }, [user, supabase])
 
-  const addFavorite = async (url) => {
+  const addFavorite = async (url, id) => {
     await addUserRowIfNeeded(user?.user?.email)
-    const isFavorite = favorites.includes(url)
+    const isFavorite = favorites.some((gif) => gif.url === url)
+    const gifProperties = { url, id }
 
     const updatedFavorites = isFavorite
-      ? favorites.filter((item) => item !== url)
-      : [...favorites, url]
+      ? favorites.filter((item) => item.url !== url)
+      : [...favorites, gifProperties]
 
     setFavorites(updatedFavorites)
 
