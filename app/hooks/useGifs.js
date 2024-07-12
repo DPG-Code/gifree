@@ -13,15 +13,16 @@ export function useGifs({ keyword, rating } = { keyword: null }) {
   const [page, setPage] = useState(INITIAL_PAGE)
   const { gifs, setGifs } = useContext(GifsContext)
 
-  // const keywordToUse = localStorage.getItem('lastKeyword') || keyword || 'random'
-  const keywordToUse = keyword || 'random'
+  const keywordToUse =
+    localStorage.getItem('lastKeyword') || keyword || 'random'
+  // const keywordToUse = keyword || 'random'
 
   useEffect(() => {
     setLoading(true)
     getGifs({ keyword: keywordToUse, rating }).then((gifs) => {
       setGifs(gifs)
       setLoading(false)
-      // if (keyword) localStorage.setItem('lastKeyword', keyword)
+      if (keyword) localStorage.setItem('lastKeyword', keyword)
     })
   }, [keyword, keywordToUse, setGifs, rating])
 

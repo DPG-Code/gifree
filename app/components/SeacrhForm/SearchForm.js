@@ -31,6 +31,7 @@ function SearchForm({ initialKeyword = '', initialRating = 'g' }) {
   const onSubmit = useCallback(
     ({ keyword, rating = 'g' }) => {
       router.push(`/Search/${keyword}/${rating}`)
+      localStorage.setItem('lastKeyword', keyword)
     },
     [router]
   )
