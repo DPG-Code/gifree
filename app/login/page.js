@@ -14,6 +14,7 @@ import { useForm } from 'react-hook-form'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { useToast } from '@/components/ui/use-toast'
+import { ToastAction } from '@/components/ui/toast'
 
 export default function Login() {
   const router = useRouter()
@@ -32,6 +33,13 @@ export default function Login() {
     try {
       if (isLoginPage) {
         await login(email, password)
+        toast({
+          title: '¡Logueado con éxito!',
+          description: 'Ahora puedes disfrutar de la experiencia completa.'
+        })
+        setTimeout(() => {
+          window.location.reload()
+        }, 2000)
       } else {
         await signUp(email, password)
         toast({

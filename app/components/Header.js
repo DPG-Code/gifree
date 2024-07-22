@@ -11,7 +11,9 @@ export default function Header() {
 
   const handleLogout = async () => {
     await logout()
-    router.refresh()
+    setTimeout(() => {
+      window.location.reload()
+    }, 2000)
   }
 
   return (
