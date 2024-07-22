@@ -43,6 +43,7 @@ export default function Login() {
       } else {
         await signUp(email, password)
         toast({
+          title: '¡Cuenta creada con éxito!',
           description: 'Dirígete a tu email y verifica tu cuenta.'
         })
       }
