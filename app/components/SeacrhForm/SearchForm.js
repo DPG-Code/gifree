@@ -40,15 +40,15 @@ function SearchForm({ initialKeyword = '', initialRating = 'g' }) {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className='w-full flex flex-col items-center justify-center gap-4 2xl:gap-10'
+        className='w-full flex flex-col items-center justify-center gap-4 xl:w-auto xl:flex-row 2xl:gap-6'
       >
         <FormField
           control={form.control}
           name='keyword'
           render={({ field }) => (
-            <FormItem className='w-full'>
+            <FormItem className='w-full xl:w-auto'>
               <FormControl>
-                <div className='w-full flex items-center justify-center relative'>
+                <div className='w-full flex items-center justify-center relative xl:w-80 2xl:w-[420px]'>
                   <Input
                     value={keyword}
                     placeholder='Buscar...'
@@ -61,7 +61,7 @@ function SearchForm({ initialKeyword = '', initialRating = 'g' }) {
             </FormItem>
           )}
         />
-        <div className='w-full flex items-center justify-center gap-4 2xl:gap-10'>
+        <div className='w-full flex items-center justify-center gap-4 xl:w-auto 2xl:gap-6'>
           <FormField
             control={form.control}
             name='rating'
@@ -90,7 +90,7 @@ function SearchForm({ initialKeyword = '', initialRating = 'g' }) {
             )}
           />
           <Button size='md' type='submit'>
-            Submit
+            Buscar
           </Button>
         </div>
       </form>

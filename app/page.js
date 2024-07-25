@@ -11,7 +11,7 @@ export default function Home() {
 
   return (
     <main className='w-full px-10 py-32 min-h-screen flex flex-col items-center justify-start gap-12 relative overflow-hidden lg:px-12 2xl:px-24 2xl:py-52 2xl:gap-20'>
-      <header className='flex flex-col items-center justify-center gap-2'>
+      <header className='w-full flex flex-col items-center justify-center gap-2'>
         <img
           className='w-56 invert xl:w-96 xl:mb-2 2xl:w-[480px] 2xl:mb-3'
           src='/gifree.png'

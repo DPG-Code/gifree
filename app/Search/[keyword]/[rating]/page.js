@@ -18,8 +18,9 @@ export default function Search({ params }) {
     once: false
   })
 
-  // // const title = gifs ? `${gifs.length} ${decodeURI(keyword)} results` : ''
+  const title = gifs ? `${gifs.length} resultados de ${decodeURI(keyword)}` : ''
 
+  // eslint-disable-next-line
   const debounceHandleNextPage = useCallback(
     debounce(() => setPage((prevPage) => prevPage + 1), 200),
     [setPage]
@@ -31,6 +32,7 @@ export default function Search({ params }) {
 
   return (
     <main className='home-container w-full px-10 py-32 min-h-screen flex flex-col items-center justify-start relative 2xl:px-20 2xl:py-52 2xl:gap-20'>
+      <title>{title}</title>
       <section className='w-full flex flex-col items-center justify-start gap-6 xl:gap-12 2xl:gap-16'>
         <h2 className='text-white font-bold text-6xl lg:text-7xl 2xl:text-8xl'>
           Gifree

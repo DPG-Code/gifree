@@ -1,21 +1,27 @@
 'use client'
 
-import Gif from '../components/Gif'
 import useAuth from '../hooks/useAuth'
 import { useFavorites } from '../hooks/useFavorites'
+import { useAutoAnimate } from '@formkit/auto-animate/react'
+import Gif from '../components/Gif'
 
 export default function Favorites() {
   const { favorites, addFavorite } = useFavorites()
   const { user } = useAuth()
 
+  const [favoritesGifParent] = useAutoAnimate()
+
   return (
     <main className='px-10 py-28 min-h-screen flex flex-col items-center justify-start lg:px-12 lg:py-36 2xl:px-24 2xl:py-52'>
       <h2 className='mb-4 w-full text-left text-white font-semibold text-2xl lg:mb-8 lg:text-3xl 2xl:mb-12 2xl:text-5xl'>
-        Favorites
+        Favoritos
       </h2>
       {user?.user ? (
         favorites.length > 0 ? (
-          <section className='w-full columns-2 gap-4 sm:columns-3 xl:columns-4 2xl:gap-6'>
+          <section
+            ref={favoritesGifParent}
+            className='w-full columns-2 gap-4 sm:columns-3 xl:columns-4 2xl:gap-6'
+          >
             {favorites.map((gif) => (
               <Gif
                 key={gif.id}

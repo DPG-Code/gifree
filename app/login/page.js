@@ -73,7 +73,7 @@ export default function Login() {
               <FormItem>
                 <FormLabel>Email</FormLabel>
                 <FormControl>
-                  <Input placeholder='example@gmail.com' required {...field} />
+                  <Input placeholder='ejemplo@gmail.com' required {...field} />
                 </FormControl>
               </FormItem>
             )}
