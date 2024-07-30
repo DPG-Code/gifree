@@ -1,8 +1,8 @@
 'use client'
 
 import { useFavorites } from '../hooks/useFavorites'
-import Gif from './Gif'
 import useAuth from '../hooks/useAuth'
+import Gif from './Gif'
 
 export default function ListOfGifs({ gifs }) {
   const { favorites, addFavorite } = useFavorites()

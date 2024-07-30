@@ -3,9 +3,9 @@ import { cn } from '@/lib/utils'
 import { GifsContextProvider } from './context/GifsContext'
 import { AuthContextProvider } from './context/AuthContext'
 import { ThemeProvider } from './context/theme-provider'
-import './globals.css'
-import Header from './components/Header'
 import { Toaster } from '@/components/ui/toaster'
+import Header from './components/Header'
+import './globals.css'
 
 const fontSans = FontSans({
   subsets: ['latin'],

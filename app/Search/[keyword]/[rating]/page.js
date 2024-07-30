@@ -3,9 +3,9 @@
 import { useEffect, useRef, useCallback } from 'react'
 import { useNearScreen } from '../../../hooks/useNearScreen'
 import { useGifs } from '../../../hooks/useGifs'
+import debounce from 'just-debounce-it'
 import ListOfGifs from '../../../components/ListOfGifs'
 import SearchForm from '../../../components/SeacrhForm/SearchForm'
-import debounce from 'just-debounce-it'
 import Loader from '@/app/components/Loader'
 
 export default function Search({ params }) {

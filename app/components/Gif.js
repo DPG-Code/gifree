@@ -1,9 +1,9 @@
 'use client'
 
-import { memo, useEffect } from 'react'
-import Link from 'next/link'
-import { Heart } from './icons/Icons'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
+import { memo } from 'react'
+import { Heart } from './icons/Icons'
 
 function Gif({ title, id, url, addFavorite, favorites, user }) {
   const router = useRouter()

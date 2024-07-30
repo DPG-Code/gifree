@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-
 import getTrendingTerms from '@/app/services/getTrendingTermsService'
 import Category from '../Category'
 
