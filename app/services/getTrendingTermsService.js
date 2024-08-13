@@ -1,6 +1,7 @@
 const API_KEY = process.env.NEXT_PUBLIC_API_KEY
 const API_URL = process.env.NEXT_PUBLIC_API_URL
 
+// Get a list of the all categories that are trending.
 export default async function getTrendingTerms() {
   const apiURL = `${API_URL}/trending/searches?api_key=${API_KEY}`
 

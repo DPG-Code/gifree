@@ -1,6 +1,8 @@
 const API_KEY = process.env.NEXT_PUBLIC_API_KEY
 const API_URL = process.env.NEXT_PUBLIC_API_URL
 
+// Get a list of gifs from a "keyword", can be filtered for "rating",
+// and recive parameters like "limit" and "page" for pagination.
 export default async function getGifs({
   limit = 25,
   keyword = 'morty',
