@@ -1,18 +1,42 @@
-# Gifree
+<div align="center">
+  <a href="https://slug.vercel.app">
+    <img
+      src="https://res.cloudinary.com/dhpxqwsym/image/upload/w_1280,h_720,c_fill/v1678870284/documentations/gifree_kgsdwt"
+      alt="Gifree principal page"
+    />
+  </a>
+  <p>
+    <b>
+      User-friendly GIF platform.
+    </b>
+  </p>
 
-### 💨 About The Project
+<div align="center">
+<p></p>
+</div>
 
-Enjoy a user-friendly GIF platform with user profiles and favoriting features.
+![Next.js Badge](https://img.shields.io/badge/Next.js 13-000?logo=nextdotjs =fff =flat)
+![React.js Badge](https://img.shields.io/badge/React-06B6D4?logo=react&logoColor=fff&style=flat)
+![GitHub stars](https://img.shields.io/github/stars/Dpg-Code/gifree)
+![GitHub forks](https://img.shields.io/github/forks/Dpg-Code/gifree)
+![GitHub PRs](https://img.shields.io/github/issues-pr/Dpg-Code/gifree)
+![GitHub issues](https://img.shields.io/github/issues/Dpg-Code/gifree)
 
-![Project previe image](https://res.cloudinary.com/dhpxqwsym/image/upload/w_1280,h_720,c_fill/v1678870284/documentations/gifree_pd4rxz)
+</div>
 
-### 💨 Built With
+### 🛠️ Stack
 
-- NEXT.JS
-- REACT.JS
-- TAILWIND
+- **Next.js**
+- **React.js**
+- **Supabase**
+- **Tailwind**
+- **Clsx**
+- **Formkit**
+- **React-hook-form**
+- **Intersection-observer**
+- **Just-debounce-it**
 
-## Commands
+### 🚀 Commands
 
 ```bash
 npm run dev
