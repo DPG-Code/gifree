@@ -36,7 +36,10 @@
 - **Intersection-observer**
 - **Just-debounce-it**
 
-### 🚀 Commands
+### 🚀 Getting Started
+
+> [!NOTE]
+> The current project is almost complete, it may have some little bugs, but nothing that affects the user experience.
 
 ```bash
 npm run dev
