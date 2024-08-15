@@ -6,10 +6,12 @@ import Skeleton from '@/app/components/Skeleton'
 import { Button } from '@/components/ui/button'
 import { useToast } from '@/components/ui/use-toast'
 
+// Detail page of a single gif.
 export default function Gif({ params }) {
   const { gif, isLoading } = useSingleGifs({ id: params.id })
   const { toast } = useToast()
 
+  // Function copy url to clipboard.
   async function copyClipboard() {
     try {
       await navigator.clipboard.writeText(window.location.href)

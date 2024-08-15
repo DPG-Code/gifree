@@ -8,10 +8,12 @@ import ListOfGifs from '../../../components/ListOfGifs'
 import SearchForm from '../../../components/SeacrhForm/SearchForm'
 import Loader from '@/app/components/Loader'
 
+// This page shown after search gifs.
 export default function Search({ params }) {
   const { keyword, rating = 'g' } = params
   const { loading, gifs, setPage } = useGifs({ keyword, rating })
   const externalRef = useRef()
+  // Initialization of "useNearScreen" hook.
   const { isNearScreen } = useNearScreen({
     distance: '200px',
     externalRef: loading ? null : externalRef,

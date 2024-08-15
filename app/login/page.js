@@ -15,6 +15,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { useToast } from '@/components/ui/use-toast'
 
+// Principal authorization page.
 export default function Login() {
   const router = useRouter()
   const [isLoginPage, setIsLoginPage] = useState(true)
@@ -23,6 +24,7 @@ export default function Login() {
   const form = useForm()
   const { toast } = useToast()
 
+  // If user isn't athorized push home page.
   useEffect(() => {
     if (user?.user) router.push('/')
   }, [router, user])

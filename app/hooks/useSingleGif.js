@@ -4,8 +4,10 @@ import { useEffect, useState } from 'react'
 import { useGifs } from './useGifs'
 import getSingleGif from '../services/getSingleGif'
 
+// Get a single information gif, and return his states: -> gif, isLoading, isError.
 export default function useSingleGifs({ id }) {
   const { gifs } = useGifs()
+  // Get gifs from cache.
   const gifFromCache = gifs.find((singleGif) => singleGif.id === id)
 
   const [gif, setGif] = useState(gifFromCache)
@@ -18,8 +20,7 @@ export default function useSingleGifs({ id }) {
         setIsLoading(true)
         getSingleGif({ id })
           .then((gif) => {
-            //se puede pasar como parametro una funcion : setGif
-            setGif(gif)
+            setGif(gif) // Can pass "setGif()" like parameter
             setIsLoading(false)
             setIsError(false)
           })

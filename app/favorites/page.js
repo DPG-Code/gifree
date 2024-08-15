@@ -5,10 +5,12 @@ import { useFavorites } from '../hooks/useFavorites'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
 import Gif from '../components/Gif'
 
+// Page that show a list of user favorites gifs, only if the user is authorized.
 export default function Favorites() {
   const { favorites, addFavorite } = useFavorites()
   const { user } = useAuth()
 
+  // Auto smooth animations.
   const [favoritesGifParent] = useAutoAnimate()
 
   return (
