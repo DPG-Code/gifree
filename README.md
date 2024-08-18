@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://slug.vercel.app">
+  <a href="https://gifree.vercel.app">
     <img
       src="https://res.cloudinary.com/dhpxqwsym/image/upload/w_1280,h_720,c_fill/v1678870284/documentations/gifree_kgsdwt"
       alt="Gifree principal page"

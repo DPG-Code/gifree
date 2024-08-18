@@ -10,6 +10,7 @@ export function AuthContextProvider({ children }) {
 
   const supabase = createClient()
 
+  // Get user information from database each time that page be reload.
   useEffect(() => {
     const fetchUser = async () => {
       const { data: user } = await supabase.auth.getUser()
@@ -19,6 +20,7 @@ export function AuthContextProvider({ children }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  // Login with a magic link via email.
   const loginWithMagic = async (email) => {
     try {
       const { error } = await supabase.auth.signInWithOtp({
@@ -26,11 +28,11 @@ export function AuthContextProvider({ children }) {
       })
       if (error) throw error
     } catch (error) {
-      // console.log(error)
       throw error
     }
   }
 
+  // Login function.
   const login = async (email, password) => {
     try {
       const { data, error } = await supabase.auth.signInWithPassword({
@@ -39,11 +41,11 @@ export function AuthContextProvider({ children }) {
       })
       if (error) throw error
     } catch (error) {
-      // console.log(error)
       throw error
     }
   }
 
+  // Sign up function.
   const signUp = async (email, password) => {
     try {
       const { data, error } = await supabase.auth.signUp({
@@ -52,32 +54,34 @@ export function AuthContextProvider({ children }) {
       })
       if (error) throw error
     } catch (error) {
-      // console.log(error)
       throw error
     }
   }
 
+  // Logout function.
   const logout = async () => {
     try {
       const { error } = await supabase.auth.signOut()
       if (error) throw error
     } catch (error) {
-      // console.log(error)
       throw error
     }
   }
 
-  // Adding User(favorites) table
+  // Function to check if the user favorites row exists.
   const checkIfFavoriteRowExists = async () => {
     try {
+      // Verify if we are logged in.
       if (!currentUser) return false
 
+      // Get favorite row from database.
       const { data: user, error } = await supabase
         .from('users')
         .select('favorites')
         .eq('user', currentUser.user.email)
 
       if (error) throw error
+      // Return boolean depending on whether it exists.
       return user[0]?.favorites ? true : false
     } catch (error) {
       console.log(error)
@@ -85,11 +89,13 @@ export function AuthContextProvider({ children }) {
     }
   }
 
+  // Add favorite row in the user table is needed.
   const addUserRowIfNeeded = async (email) => {
     try {
       const isRowCreated = await checkIfFavoriteRowExists()
       if (isRowCreated) return
 
+      // Create a new favorites row in database.
       const { data, error } = await supabase
         .from('users')
         .insert([{ user: email, favorites: '[]' }])
