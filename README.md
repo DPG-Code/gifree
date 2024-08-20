@@ -24,7 +24,7 @@
 
 </div>
 
-### 🛠️ Stack
+## 🛠️ Stack
 
 - **Next.js**
 - **React.js**
@@ -36,7 +36,7 @@
 - **Intersection-observer**
 - **Just-debounce-it**
 
-### 🚀 Getting Started
+## 🚀 Getting Started
 
 > [!NOTE]
 > The current project is almost complete, it may have some little bugs, but nothing that affects the user experience.
