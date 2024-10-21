@@ -8,9 +8,11 @@ const TrendingSearchesCalls = React.lazy(() =>
   import('./TrendingSearchesCalls')
 )
 
+// Component that display trends.
 export default function TrendingSearches() {
   const { isNearScreen, fromRef } = useNearScreen({ distance: '200px' })
 
+  // Only shows the trends if the component is visible in screen.
   return (
     <section className='w-full flex flex-col gap-4 2xl:gap-12' ref={fromRef}>
       <Suspense

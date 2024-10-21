@@ -18,6 +18,7 @@ import {
 } from '@/components/ui/select'
 import { Form, FormControl, FormField, FormItem } from '@/components/ui/form'
 
+// Display a form using 'React hook form'.
 function SearchForm({ initialKeyword = '', initialRating = 'g' }) {
   const router = useRouter()
 
@@ -28,6 +29,8 @@ function SearchForm({ initialKeyword = '', initialRating = 'g' }) {
 
   const form = useFormReact()
 
+  // Makes a search for the keyword, redirecting the page to '/Search/${keyword}/${rating}' and
+  // save the keyword in localstorage.
   const onSubmit = useCallback(
     ({ keyword, rating = 'g' }) => {
       router.push(`/Search/${keyword}/${rating}`)

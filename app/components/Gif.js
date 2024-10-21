@@ -5,14 +5,17 @@ import Link from 'next/link'
 import { memo } from 'react'
 import { Heart } from './icons/Icons'
 
+// Get detailed information for a single gif and display the information.
 function Gif({ title, id, url, addFavorite, favorites, user }) {
   const router = useRouter()
 
+  // Add a gif to a favorites list, if the user isn't authenticated will be redirect to '/login page'.
   const handleAddFavorite = () => {
     if (user?.user) addFavorite(url, id)
     else router.push('/login')
   }
 
+  // Styles for favorite button if the user is or not authenticated.
   const ifFavorite = favorites
     ? favorites.some((gif) => gif.url === url)
       ? 'bg-red-700/75 hover:bg-primary-black/30'

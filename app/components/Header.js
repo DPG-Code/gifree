@@ -1,14 +1,13 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import useAuth from '../hooks/useAuth'
 import { Button } from '@/components/ui/button'
 
 export default function Header() {
   const { user, logout } = useAuth()
-  const router = useRouter()
 
+  // Function that logout the user and refresh the page to confirm.
   const handleLogout = async () => {
     await logout()
     setTimeout(() => {

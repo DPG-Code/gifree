@@ -7,6 +7,7 @@ import Category from '../Category'
 export default function TrendingSearchesCalls() {
   const [trends, setTrends] = useState([])
 
+  // Get trends when the page be loaded.
   useEffect(function () {
     getTrendingTerms().then(setTrends)
   }, [])

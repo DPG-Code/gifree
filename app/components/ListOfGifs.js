@@ -4,6 +4,7 @@ import { useFavorites } from '../hooks/useFavorites'
 import useAuth from '../hooks/useAuth'
 import Gif from './Gif'
 
+// Displays a component containing a list of gifs (<Gif>).
 export default function ListOfGifs({ gifs }) {
   const { favorites, addFavorite } = useFavorites()
   const { user } = useAuth()
