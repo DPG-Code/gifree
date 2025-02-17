@@ -55,9 +55,11 @@ export default function Gif({ params }) {
             </p>
             <div className='flex gap-2 xl:gap-4'>
               <Button onClick={copyClipboard}>Copy URL</Button>
-              <Link href={gif?.url} target='_blank'>
-                <Button variant='secondary'>Original Gif</Button>
-              </Link>
+              {gif && (
+                <Link href={gif?.url} target='_blank'>
+                  <Button variant='secondary'>Original Gif</Button>
+                </Link>
+              )}
             </div>
           </aside>
         </>

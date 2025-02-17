@@ -29,11 +29,11 @@ function SearchForm({ initialKeyword = '', initialRating = 'g' }) {
 
   const form = useFormReact()
 
-  // Makes a search for the keyword, redirecting the page to '/Search/${keyword}/${rating}' and
+  // Makes a search for the keyword, redirecting the page to '/search/${keyword}/${rating}' and
   // save the keyword in localstorage.
   const onSubmit = useCallback(
     ({ keyword, rating = 'g' }) => {
-      router.push(`/Search/${keyword}/${rating}`)
+      router.push(`/search/${keyword}/${rating}`)
       localStorage.setItem('lastKeyword', keyword)
     },
     [router]
